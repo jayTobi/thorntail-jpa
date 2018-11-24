@@ -11,6 +11,7 @@
 
     <properties>
         <version.thorntail>2.2.1.Final</version.thorntail>
+        <version.postgresql>42.2.5</version.postgresql>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -29,6 +30,20 @@
             <groupId>io.thorntail</groupId>
             <artifactId>logging</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>datasources</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${version.postgresql}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>thorntail-runner</artifactId>

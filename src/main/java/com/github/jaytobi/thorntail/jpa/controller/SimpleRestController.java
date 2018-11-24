@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 public class SimpleRestController {
     private static Logger log = Logger.getLogger(SimpleRestController.class);  //use this - because slf4j may cause problems on Java 9 + ?
 
+
     @GET
     @Path("/")
     public String hello() {

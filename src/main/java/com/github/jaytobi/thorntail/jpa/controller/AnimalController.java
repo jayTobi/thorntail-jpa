@@ -12,7 +12,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestScoped
@@ -21,7 +20,7 @@ public class AnimalController {
     private static Logger log = Logger.getLogger(SimpleRestController.class);  //use this - because slf4j may cause problems on Java 9 + ?
 
     @PersistenceContext(name = "MyPU")
-    private EntityManager entityManager;
+    private EntityManager entityManager;  //TODO must be moved to another layer - just for simple prototype
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     @GET
@@ -31,12 +30,10 @@ public class AnimalController {
         Animal animal = new Animal();
         animal.setAge(13);
         animal.setName("Frog");
-        List<Animal> animals = new ArrayList<>();
+
         log.warnf("reading animals from database");
-        Long primaryKey = 1l;
         entityManager.persist(animal);
-        animals = (List<Animal>) entityManager.createNativeQuery("SELECT * FROM Animal;").getResultList();
-//        return entityManager.find(Animal.class, primaryKey);
+        List<Animal> animals = (List<Animal>) entityManager.createNativeQuery("SELECT * FROM Animal;").getResultList();
         return animals;
     }
 }

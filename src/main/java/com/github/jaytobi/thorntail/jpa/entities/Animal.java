@@ -37,4 +37,7 @@ public class Animal implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @//Version
+    //maybe add hibernate envers
 }
